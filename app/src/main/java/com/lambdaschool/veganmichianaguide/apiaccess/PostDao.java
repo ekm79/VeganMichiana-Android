@@ -36,7 +36,7 @@ public class PostDao {
     }
 
     public static void deleteRestaurant(long restId) {
-        String url = "http://192.168.1.14:2019/admin/restaurants/" + String.valueOf(restId);
+        String url = "http://192.168.1.14:2019/restaurants/restaurants/" + String.valueOf(restId);
         try {
             NetworkAdapter.httpRequest(url, DELETE, null, null );
         } catch (IOException e) {

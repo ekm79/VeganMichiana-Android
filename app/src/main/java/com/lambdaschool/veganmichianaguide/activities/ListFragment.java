@@ -45,6 +45,7 @@ public class ListFragment extends Fragment {
     private int mColumnCount = 1;
     private int category = 1;
     private OnListFragmentInteractionListener mListener;
+    MyListRecyclerViewAdapter adapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -145,139 +146,94 @@ public class ListFragment extends Fragment {
             }
             recyclerView.setAdapter(new MyListRecyclerViewAdapter(new ArrayList<ApiObject>(), mListener));
 
-            switch (category) {
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+
+                    switch (category) {
                 case CATEGORY_RESTAURANT:
-                    VeganMichianaDao.getAllRestaurants(new VeganMichianaDao.ObjectCallback<Restaurant>() {
+
+                    final ArrayList<Restaurant> restaurants =VeganMichianaDao.getAllRestaurants();
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
-                        public void returnObject(final Restaurant object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
+                        public void run() {
 
+                            ArrayList <ApiObject> parentObject = new ArrayList<>();
+                            for (int i = 0; i < restaurants.size(); i++) {
 
-                            /*ArrayList<ApiObject> parentObject = new ArrayList<>();
-                            parentObject.addAll(object);
+//                                ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(restaurants.get(i));
+                                parentObject.addAll(restaurants);
+                            }
 
-                            recyclerView.setAdapter(new MySwApiObjectRecyclerViewAdapter(parentObject, mListener));*/
-                                    ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(object);
-                                }
-                            });
-                        }
+                            recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
 
-                        public void returnObject(final ArrayList<Restaurant> object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    ArrayList<ApiObject> parentObject = new ArrayList<>();
-                                    parentObject.addAll(object);
-
-                                    recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
-                                }
-                            });
                         }
                     });
+
+
                     break;
 
                 case CATEGORY_MENU_ITEM:
-                    VeganMichianaDao.getAllMenuItems(new AtomicBoolean(false), new VeganMichianaDao.ObjectCallback<MenuItem>() {
+
+                    final ArrayList<MenuItem> menuItems = VeganMichianaDao.getAllMenuItems();
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
-                        public void returnObject(final MenuItem object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
+                        public void run() {
+                            ArrayList<ApiObject> parentObject = new ArrayList<>();
+                            for (int i = 0; i < menuItems.size(); i++) {
 
+                                ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(menuItems.get(i));
+                                parentObject.addAll(menuItems);
+                            }
 
-                            /*ArrayList<SwApiObject> parentObject = new ArrayList<>();
-                            parentObject.addAll(object);
+                            recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
 
-                            recyclerView.setAdapter(new MySwApiObjectRecyclerViewAdapter(parentObject, mListener));*/
-                                    ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(object);
-                                }
-                            });
-                        }
-
-                        public void returnObject(final ArrayList<MenuItem> object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    ArrayList<ApiObject> parentObject = new ArrayList<>();
-                                    parentObject.addAll(object);
-
-                                    recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
-                                }
-                            });
                         }
                     });
                     break;
 
                 case CATEGORY_STORE:
-                    VeganMichianaDao.getAllStores(new AtomicBoolean(false), new VeganMichianaDao.ObjectCallback<Store>() {
+                    final ArrayList<Store> stores =VeganMichianaDao.getAllStores();
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
-                        public void returnObject(final Store object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
+                        public void run() {
+                            ArrayList <ApiObject> parentObject = new ArrayList<>();
+                            for (int i = 0; i < stores.size(); i++) {
 
+                                ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(stores.get(i));
+                                parentObject.addAll(stores);
+                            }
 
-                            /*ArrayList<SwApiObject> parentObject = new ArrayList<>();
-                            parentObject.addAll(object);
+                            recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
 
-                            recyclerView.setAdapter(new MySwApiObjectRecyclerViewAdapter(parentObject, mListener));*/
-                                    ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(object);
-                                }
-                            });
-                        }
-
-                        public void returnObject(final ArrayList<Store> object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    ArrayList<ApiObject> parentObject = new ArrayList<>();
-                                    parentObject.addAll(object);
-
-                                    recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
-                                }
-                            });
                         }
                     });
+
                     break;
 
                 case CATEGORY_PRODUCT:
-                    VeganMichianaDao.getAllProducts(new AtomicBoolean(false), new VeganMichianaDao.ObjectCallback<Product>() {
+                    final ArrayList<Product> products =VeganMichianaDao.getAllProducts();
+                    getActivity().runOnUiThread(new Runnable() {
                         @Override
-                        public void returnObject(final Product object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
+                        public void run() {
+                            ArrayList <ApiObject> parentObject = new ArrayList<>();
+                            for (int i = 0; i < products.size(); i++) {
 
+                                ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(products.get(i));
+                                parentObject.addAll(products);
+                            }
 
-                            /*ArrayList<SwApiObject> parentObject = new ArrayList<>();
-                            parentObject.addAll(object);
+                            recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
 
-                            recyclerView.setAdapter(new MySwApiObjectRecyclerViewAdapter(parentObject, mListener));*/
-                                    ((MyListRecyclerViewAdapter) recyclerView.getAdapter()).addItem(object);
-                                }
-                            });
-                        }
-
-                        public void returnObject(final ArrayList<Product> object) {
-                            getActivity().runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                    ArrayList<ApiObject> parentObject = new ArrayList<>();
-                                    parentObject.addAll(object);
-
-                                    recyclerView.setAdapter(new MyListRecyclerViewAdapter(parentObject, mListener));
-                                }
-                            });
                         }
                     });
+
                     break;
             }
+                }
+            }).start();
         }
         return view;
     }
@@ -324,4 +280,6 @@ public class ListFragment extends Fragment {
         fr.addToBackStack(null);
         fr.commit();
     }
+
+
 }

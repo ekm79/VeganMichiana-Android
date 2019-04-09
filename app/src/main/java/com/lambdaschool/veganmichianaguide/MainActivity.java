@@ -16,10 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+//        logo = findViewById(R.id.vm_logo);
+//        logo.setImageDrawable(getResources().getDrawable(R.drawable.vm_logo_lg_final));
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+                Intent homeIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(homeIntent);
                 finish();
             }
