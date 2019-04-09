@@ -70,7 +70,7 @@ public class VeganMichianaDao {
             e.printStackTrace();
         }
 
-        Log.i("HeaderProperties", headerProperties.toString());
+//        Log.i("HeaderProperties", headerProperties.toString());
         return headerProperties;
     }
 

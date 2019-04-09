@@ -20,7 +20,7 @@ public class PostDao {
     public static void addRestaurant(JSONObject object) {
 
         try {
-            NetworkAdapter.httpRequest("http://192.168.1.14:2019/restaurants/add", POST, object, null);
+            NetworkAdapter.httpRequest("http://192.168.1.14:2019/restaurants/add", POST, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,7 +29,7 @@ public class PostDao {
     public static void updateRestaurant(JSONObject object, long id) {
         String url = "http://192.168.1.14:2019/restaurants/restaurants/" + String.valueOf(id);
         try {
-            NetworkAdapter.httpRequest(url, PUT, object, null);
+            NetworkAdapter.httpRequest(url, PUT, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,7 +38,7 @@ public class PostDao {
     public static void deleteRestaurant(long restId) {
         String url = "http://192.168.1.14:2019/restaurants/restaurants/" + String.valueOf(restId);
         try {
-            NetworkAdapter.httpRequest(url, DELETE, null, null );
+            NetworkAdapter.httpRequest(url, DELETE, null, VeganMichianaDao.headerProperties );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class PostDao {
     public static void addProduct(JSONObject object) {
 
         try {
-            NetworkAdapter.httpRequest("http://192.168.1.14:2019/products/add", POST, object, null);
+            NetworkAdapter.httpRequest("http://192.168.1.14:2019/products/add", POST, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,7 +56,7 @@ public class PostDao {
     public static void updateProduct(JSONObject object, long id) {
         String url = "http://192.168.1.14:2019/products/products/" + String.valueOf(id);
         try {
-            NetworkAdapter.httpRequest(url, PUT, object, null);
+            NetworkAdapter.httpRequest(url, PUT, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class PostDao {
     public static void deleteProduct(long restId) {
         String url = "http://192.168.1.14:2019/products/products/" + String.valueOf(restId);
         try {
-            NetworkAdapter.httpRequest(url, DELETE, null, null );
+            NetworkAdapter.httpRequest(url, DELETE, null, VeganMichianaDao.headerProperties );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,7 +74,7 @@ public class PostDao {
     public static void addStore(JSONObject object) {
 
         try {
-            NetworkAdapter.httpRequest("http://192.168.1.14:2019/stores/add", POST, object, null);
+            NetworkAdapter.httpRequest("http://192.168.1.14:2019/stores/add", POST, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,7 +83,7 @@ public class PostDao {
     public static void updateStore(JSONObject object, long id) {
         String url = "http://192.168.1.14:2019/stores/stores/" + String.valueOf(id);
         try {
-            NetworkAdapter.httpRequest(url, PUT, object, null);
+            NetworkAdapter.httpRequest(url, PUT, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class PostDao {
     public static void deleteStore(long restId) {
         String url = "http://192.168.1.14:2019/stores/stores/" + String.valueOf(restId);
         try {
-            NetworkAdapter.httpRequest(url, DELETE, null, null );
+            NetworkAdapter.httpRequest(url, DELETE, null, VeganMichianaDao.headerProperties );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,7 +101,7 @@ public class PostDao {
     public static void addMenuItem(JSONObject object) {
 
         try {
-            NetworkAdapter.httpRequest("http://192.168.1.14:2019/menuitems/add", POST, object, null);
+            NetworkAdapter.httpRequest("http://192.168.1.14:2019/menuitems/add", POST, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class PostDao {
     public static void updateMenuItem(JSONObject object, long id) {
         String url = "http://192.168.1.14:2019/menuitems/menuitems/" + String.valueOf(id);
         try {
-            NetworkAdapter.httpRequest(url, PUT, object, null);
+            NetworkAdapter.httpRequest(url, PUT, object, VeganMichianaDao.headerProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -119,7 +119,7 @@ public class PostDao {
     public static void deleteMenuItem(long restId) {
         String url = "http://192.168.1.14:2019/menuitems/menuitems/" + String.valueOf(restId);
         try {
-            NetworkAdapter.httpRequest(url, DELETE, null, null );
+            NetworkAdapter.httpRequest(url, DELETE, null, VeganMichianaDao.headerProperties );
         } catch (IOException e) {
             e.printStackTrace();
         }
